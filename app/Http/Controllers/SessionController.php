@@ -14,6 +14,12 @@ class SessionController extends Controller
 	
     public function index()
     {
+        if (request()->input('debut')) {
+            //$session = $this->started(request()->input('debut'));
+        }
+        if(request()->input('fin')) {
+            //$session = $this->started(request()->input('debut'));
+        }
         return Session::all();
     }
  
@@ -40,5 +46,30 @@ class SessionController extends Controller
         $session->delete();
 
         return response()->json(null, 204);
+    }
+    
+    public function between($dateDebutString, $dateFinString){
+        $dateDebut = date($dateDebutString);
+        $dateFin = date($dateFinString);
+
+        $session = Session::where('debut', '>=',$dateDebut)->where('debut', '<=',$dateFin)->get();
+        return response()->json($session, 200);
+    }
+    public function started($dateDebutString){
+        $dateDebut = date($dateDebutString);
+
+        //$session = Session::whereDate('debut', $dateDebut)->get();
+        $session = Session::where('debut', '>=',$dateDebut)->get();
+        return response()->json($session, 200);
+        //return request()->input('debut');
+    }
+    
+    public function ended($dateFinString){
+        $dateFin = date($dateFinString);
+
+        //$session = Session::whereDate('debut', $dateDebut)->get();
+        $session = Session::where('fin', '>=',$dateFin)->get();
+        return response()->json($session, 200);
+        //return request()->input('debut');
     }
 }
