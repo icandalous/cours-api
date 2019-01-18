@@ -37,10 +37,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	Route::delete('cours/{id}/', 'CoursController@delete');
 	
 	
-	Route::get('cours/{id}/categories/{idCat}', 'CoursController@index');
+	Route::get('cours/{id}/categories/{catecorieid}', 'CoursController@index');
 	Route::get('cours/{id}/organisateur/', 'CoursController@index');
 	Route::get('cours/{id}/sessions/', 'CoursController@index');
-	Route::get('cours/{id}/sessions/{idSession}/', 'CoursController@index');
+	Route::get('cours/{id}/sessions/{sessionid}/', 'CoursController@index');
 	Route::get('cours/{id}/sessions?date?start={dateDebut}', 'CoursController@index');
 	Route::get('cours/{id}/sessions?date?start={dateDebut}&end={dateFin}', 'CoursController@index');
 	Route::get('cours/{id}/sessions/etudiants/', 'CoursController@index');

@@ -97,6 +97,10 @@ class CoursController extends Controller
         return Cours::with("organisateur", "categorie", "session")->get();
     }
     
+    /*****************************************
+     * Obtenir les cours en cours de session
+     * @return liste des cours non terminé
+     *****************************************/
     public function getCurrentSessions(){
         //return Cours::with("current_session")->get();
         return Cours::with("organisateur", "categorie", "session")->whereHas('session',function ($query) {
@@ -108,7 +112,7 @@ class CoursController extends Controller
         $dateDebut = date($dateDebutString);
         $dateFin = date($dateFinString);
 
-        $cours = Cours::whereHas('session', function ($query) {
+        $cours = Cours::whereHas('session', function ($query) use ($dateDebut, $dateFin){
             $query->where('debut', '>=',$dateDebut)->where('debut', '<=',$dateFin);
         })->get();
         //$session = Session::where('debut', '>=',$dateDebut)->where('debut', '<=',$dateFin)->get();
