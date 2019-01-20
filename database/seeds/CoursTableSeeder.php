@@ -24,7 +24,7 @@ class CoursTableSeeder extends Seeder
                 'titre' => $faker->word,
 				'description' => $faker->paragraph,
 				'prix' => $faker->numberBetween(0,200),
-				'id_organisateur' => $faker->numberBetween(1,5)
+				'organisateur_id' => $faker->numberBetween(1,5)
             ]);
         }
     }
