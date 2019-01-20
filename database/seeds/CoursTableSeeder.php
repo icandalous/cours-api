@@ -20,7 +20,7 @@ class CoursTableSeeder extends Seeder
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 50; $i++) {
             Cours::create([
-                'code' => "CR0"+$i, 
+                'code' => "COURS".$i, 
                 'titre' => $faker->word,
 				'description' => $faker->paragraph,
 				'prix' => $faker->numberBetween(0,200),
