@@ -20,6 +20,7 @@ class CreateSessionTable extends Migration
 			$table->dateTime('fin');
 			$table->integer('capacite');
 			$table->unsignedInteger('intervenant_id');
+                        $table->unsignedInteger('cours_id');
 			//$table->foreign('id_intervenant')->references('id')->on('intervenant');
             $table->timestamps();
 			
