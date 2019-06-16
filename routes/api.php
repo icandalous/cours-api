@@ -14,7 +14,7 @@ use App\Cours;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-	die(Auth::guard('api')->check());
+	//die(Auth::guard('api')->check());
     return $request->user();
 });
 
@@ -24,6 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	/*Route::middleware('auth:api')->get('/user', function (Request $request) {
 		return $request->user();
 	});*/
+    
 	Route::post('register', 'Auth\RegisterController@register');
 	Route::post('login', 'Auth\LoginController@login');
 	Route::post('logout', 'Auth\LoginController@logout');
@@ -56,7 +57,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	Route::get('sessions/', 'SessionController@index');
 	//Route::get('sessions/{session}', 'SessionController@show');
         //Route::get('sessions?debut={debut}', 'SessionController@started');
-        Route::get('cours/sessions', 'CoursController@sessions');
-        Route::get('cours/details', 'CoursController@details');
-        Route::get('cours/courant', 'CoursController@getCurrentSessions');
+	Route::get('cours/sessions', 'CoursController@sessions');
+	Route::get('cours/details', 'CoursController@details');
+	Route::get('cours/courant', 'CoursController@getCurrentSessions');
 //});
