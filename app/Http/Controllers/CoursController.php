@@ -39,7 +39,7 @@ class CoursController extends Controller
  
     /*****************************************
      * Retourne l'information d'un cours
-     * selon son le ID fournit en parametre
+     * selon le ID fournit en parametre
      *****************************************/
     public function show(Cours $cours)
     {
@@ -134,5 +134,9 @@ class CoursController extends Controller
         $session = Session::where('fin', '>=',$dateFin)->get();
         return response()->json($session, 200);
         //return request()->input('debut');
+    }
+
+    public function notYet(){
+        return response()->json("Pas encore disponible", 404);
     }
 }

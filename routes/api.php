@@ -31,30 +31,34 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	
 	Route::get('cours', 'CoursController@index');
 	Route::get('cours/{cours}', 'CoursController@show');
-	Route::get('cours/{id}/categories/', 'CoursController@index');
+	
 	
 	Route::post('cours', 'CoursController@store');
 	Route::put('cours/{id}', 'CoursController@update');
 	Route::delete('cours/{id}/', 'CoursController@delete');
 	
 	
-	Route::get('cours/{id}/categories/{catecorieid}', 'CoursController@index');
-	Route::get('cours/{id}/organisateur/', 'CoursController@index');
-	Route::get('cours/{id}/sessions/', 'CoursController@index');
-	Route::get('cours/{id}/sessions/{sessionid}/', 'CoursController@index');
-	Route::get('cours/{id}/sessions?date?start={dateDebut}', 'CoursController@index');
-	Route::get('cours/{id}/sessions?date?start={dateDebut}&end={dateFin}', 'CoursController@index');
-	Route::get('cours/{id}/sessions/etudiants/', 'CoursController@index');
-	Route::get('cours/{id}/sessions/etudiants/{idEtudiant}', 'CoursController@index');
-	Route::get('cours/{id}/sessions/etudiants?nom={nom}&email={email}', 'CoursController@index');
-	Route::get('cours/{id}/sessions/intervenants/', 'CoursController@index');
-	Route::get('cours/{id}/sessions/intervenants/{idIntervenant}', 'CoursController@index');
-	Route::get('intervenants/{id}', 'CoursController@index');
-	Route::get('categories/{id}', 'CoursController@index');
-	Route::get('organisateurs/', 'CoursController@index');
-	Route::get('organisateurs/{id}', 'CoursController@index');
+	/************************************************************************************************/
+	// PAS ENCORE IMPLÉMENTER
+	/************************************************************************************************/
+	Route::get('cours/{id}/categories/', 'CoursController@notYet');
+	Route::get('cours/{id}/categories/{catecorieid}', 'CoursController@notYet');
+	Route::get('cours/{id}/organisateur/', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/{sessionid}/', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions?date?start={dateDebut}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions?date?start={dateDebut}&end={dateFin}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/etudiants/', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/etudiants/{idEtudiant}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/etudiants?nom={nom}&email={email}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/intervenants/', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions/intervenants/{idIntervenant}', 'CoursController@notYet');
+	Route::get('intervenants/{id}', 'CoursController@notYet');
+	Route::get('categories/{id}', 'CoursController@notYet');
+	Route::get('organisateurs/', 'CoursController@notYet');
+	Route::get('organisateurs/{id}', 'CoursController@notYet');
 	
-	Route::get('sessions/', 'SessionController@index');
+	Route::get('sessions/', 'SessionController@notYet');
 	//Route::get('sessions/{session}', 'SessionController@show');
         //Route::get('sessions?debut={debut}', 'SessionController@started');
 	Route::get('cours/sessions', 'CoursController@sessions');
