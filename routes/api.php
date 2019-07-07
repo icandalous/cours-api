@@ -37,6 +37,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	Route::put('cours/{id}', 'CoursController@update');
 	Route::delete('cours/{id}/', 'CoursController@delete');
 	
+	Route::get('cours/sessions', 'CoursController@sessions');
+	Route::get('cours/details', 'CoursController@details');
+
+	Route::get('cours/courant', 'CoursController@getCurrentSessions');
 	
 	/************************************************************************************************/
 	// PAS ENCORE IMPLÉMENTER
@@ -46,8 +50,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	Route::get('cours/{id}/organisateur/', 'CoursController@notYet');
 	Route::get('cours/{id}/sessions/', 'CoursController@notYet');
 	Route::get('cours/{id}/sessions/{sessionid}/', 'CoursController@notYet');
-	Route::get('cours/{id}/sessions?date?start={dateDebut}', 'CoursController@notYet');
-	Route::get('cours/{id}/sessions?date?start={dateDebut}&end={dateFin}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions?start={dateDebut}', 'CoursController@notYet');
+	Route::get('cours/{id}/sessions?start={dateDebut}&end={dateFin}', 'CoursController@notYet');
 	Route::get('cours/{id}/sessions/etudiants/', 'CoursController@notYet');
 	Route::get('cours/{id}/sessions/etudiants/{idEtudiant}', 'CoursController@notYet');
 	Route::get('cours/{id}/sessions/etudiants?nom={nom}&email={email}', 'CoursController@notYet');
@@ -61,7 +65,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	Route::get('sessions/', 'SessionController@notYet');
 	//Route::get('sessions/{session}', 'SessionController@show');
         //Route::get('sessions?debut={debut}', 'SessionController@started');
-	Route::get('cours/sessions', 'CoursController@sessions');
-	Route::get('cours/details', 'CoursController@details');
-	Route::get('cours/courant', 'CoursController@getCurrentSessions');
+	
+	
 //});
